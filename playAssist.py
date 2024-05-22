@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import json
+import os
 
 class Character:
-    def __init__(self, name, race, char_class, level, sub_class, ability_modifiers, proficiencies, actions, god, proficiency_bonus, saving_throws, notes):
+    def __init__(self, name, race, char_class, level, sub_class, ability_modifiers, proficiencies, actions, god, proficiency_bonus, saving_throws, notes, weapons, race_abilities, class_abilities):
         self.name = name
         self.race = race
         self.char_class = char_class
@@ -16,6 +17,9 @@ class Character:
         self.proficiency_bonus = proficiency_bonus
         self.saving_throws = [saving_throw.lower() for saving_throw in saving_throws]
         self.notes = notes
+        self.weapons = weapons
+        self.race_abilities = race_abilities
+        self.class_abilities = class_abilities
 
     def get_stat(self, stat):
         skill_to_ability = {
@@ -73,7 +77,10 @@ class Character:
             "god": self.god,
             "proficiency_bonus": self.proficiency_bonus,
             "saving_throws": self.saving_throws,
-            "notes": self.notes
+            "notes": self.notes,
+            "weapons": self.weapons,
+            "race_abilities": self.race_abilities,
+            "class_abilities": self.class_abilities
         }
 
     @classmethod
@@ -90,36 +97,79 @@ class Character:
             data["god"],
             data["proficiency_bonus"],
             data.get("saving_throws", []),
-            data.get("notes", "")
+            data.get("notes", ""),
+            data.get("weapons", []),
+            data.get("race_abilities", {}),
+            data.get("class_abilities", {})
         )
 
     def display_info(self):
+        weapon_info = ""
+        for weapon_name in self.weapons:
+            weapon = next((w for w in weapons if w.name.lower() == weapon_name.lower()), None)
+            if weapon:
+                weapon_info += weapon.display_info() + "\n"
+
+        race_abilities_info = "\n".join([f"  {name} ({details['time']}): {details['description']}" for name, details in self.race_abilities.items()])
+        class_abilities_info = "\n".join([f"  {name} ({details['time']}): {details['description']}" for name, details in self.class_abilities.items()])
+
         info = f"""
-------------------------
-Name: {self.name}
-Race: {self.race}
-Class: {self.char_class}
-Level: {self.level}
-Subclass: {self.sub_class}
-Ability Modifiers:
-  Strength: {self.ability_modifiers.get("strength", 0)}
-  Dexterity: {self.ability_modifiers.get("dexterity", 0)}
-  Constitution: {self.ability_modifiers.get("constitution", 0)}
-  Intelligence: {self.ability_modifiers.get("intelligence", 0)}
-  Wisdom: {self.ability_modifiers.get("wisdom", 0)}
-  Charisma: {self.ability_modifiers.get("charisma", 0)}
-Proficiencies: {', '.join(self.proficiencies)}
-Saving Throws: {', '.join(self.saving_throws)}
-Actions:
-  Bonus Actions: {self.actions['bonus_actions']}
-  Extra Attacks: {self.actions['extra_attacks']}
-  Actions: {self.actions['actions']}
-God: {self.god}
-Proficiency Bonus: {self.proficiency_bonus}
-Notes: {self.notes}
-------------------------
+========================================
+Character Information
+========================================
+Name:                {self.name}
+Race:                {self.race}
+Class:               {self.char_class}
+Level:               {self.level}
+Subclass:            {self.sub_class}
+
+----------------------------------------
+Ability Modifiers
+----------------------------------------
+  Strength:          {self.ability_modifiers.get("strength", 0)}
+  Dexterity:         {self.ability_modifiers.get("dexterity", 0)}
+  Constitution:      {self.ability_modifiers.get("constitution", 0)}
+  Intelligence:      {self.ability_modifiers.get("intelligence", 0)}
+  Wisdom:            {self.ability_modifiers.get("wisdom", 0)}
+  Charisma:          {self.ability_modifiers.get("charisma", 0)}
+
+----------------------------------------
+Proficiencies:       {', '.join(self.proficiencies)}
+Saving Throws:       {', '.join(self.saving_throws)}
+
+----------------------------------------
+Actions
+----------------------------------------
+  Bonus Actions:     {self.actions['bonus_actions']}
+  Extra Attacks:     {self.actions['extra_attacks']}
+  Actions:           {self.actions['actions']}
+
+----------------------------------------
+Weapons
+----------------------------------------
+{weapon_info}
+----------------------------------------
+Race Abilities
+----------------------------------------
+{race_abilities_info}
+
+----------------------------------------
+Class Abilities
+----------------------------------------
+{class_abilities_info}
+
+----------------------------------------
+God:                 {self.god}
+Proficiency Bonus:   {self.proficiency_bonus}
+
+----------------------------------------
+Notes
+----------------------------------------
+{self.notes}
+========================================
         """
         return info.strip()
+
 
 class Spell:
     def __init__(self, spell_class, spell_save_dc, level, spell_name, description):
@@ -127,7 +177,10 @@ class Spell:
         self.spell_save_dc = spell_save_dc
         self.level = level
         self.spell_name = spell_name
-        self.description = description
+        self.description = self.clean_input(description)
+
+    def clean_input(self, text):
+        return ' '.join(text.split())
 
     def to_dict(self):
         return {
@@ -247,33 +300,33 @@ def load_from_file(filename, cls):
         return []
 
 def load_characters():
-    return load_from_file("characters.json", Character)
+    return load_from_file(os.path.join(os.path.dirname(__file__), "characters.json"), Character)
 
 def save_characters(characters):
-    save_to_file(characters, "characters.json")
+    save_to_file(characters, os.path.join(os.path.dirname(__file__), "characters.json"))
 
 def load_spells():
-    return load_from_file("spells.json", Spell)
+    return load_from_file(os.path.join(os.path.dirname(__file__), "spells.json"), Spell)
 
 def save_spells(spells):
-    save_to_file(spells, "spells.json")
+    save_to_file(spells, os.path.join(os.path.dirname(__file__), "spells.json"))
 
 def load_weapons():
-    return load_from_file("weapons.json", Weapon)
+    return load_from_file(os.path.join(os.path.dirname(__file__), "weapons.json"), Weapon)
 
 def save_weapons(weapons):
-    save_to_file(weapons, "weapons.json")
+    save_to_file(weapons, os.path.join(os.path.dirname(__file__), "weapons.json"))
 
 def load_bag_of_holding():
     try:
-        with open("bag_of_holding.json", "r") as f:
+        with open(os.path.join(os.path.dirname(__file__), "bag_of_holding.json"), "r") as f:
             data = json.load(f)
             return BagOfHolding.from_dict(data)
     except FileNotFoundError:
         return BagOfHolding()
 
 def save_bag_of_holding(bag_of_holding):
-    with open("bag_of_holding.json", "w") as f:
+    with open(os.path.join(os.path.dirname(__file__), "bag_of_holding.json"), "w") as f:
         json.dump(bag_of_holding.to_dict(), f, indent=4)
 
 characters = load_characters()
@@ -391,7 +444,30 @@ def handle_add_character_command():
         proficiency_bonus = int(input(f"Enter the proficiency bonus for {name}: "))
         notes = input(f"Enter any additional notes for {name}: ")
 
-        new_character = Character(name, race, char_class, level, sub_class, abilities, proficiencies, actions, god, proficiency_bonus, saving_throws, notes)
+        weapons = input(f"Enter {name}'s weapons (comma separated): ").lower().split(", ")
+        race_abilities = {}
+        while True:
+            add_race_ability = input("Add a race ability? (y/n): ").lower()
+            if add_race_ability == 'n':
+                break
+            ability_name = input("Enter race ability name: ")
+            ability_time = input("Enter the time it takes to complete (action, bonus action, reaction): ")
+            ability_description = input("Enter the ability description: ")
+            race_abilities[ability_name] = {"time": ability_time, "description": ability_description}
+
+        class_abilities = {}
+        while True:
+            add_class_ability = input("Add a class ability? (y/n): ").lower()
+            if add_class_ability == 'n':
+                break
+            ability_name = input("Enter class ability name: ")
+            ability_time = input("Enter the time it takes to complete (action, bonus action, reaction): ")
+            ability_description = input("Enter the ability description: ")
+            class_abilities[ability_name] = {"time": ability_time, "description": ability_description}
+
+        new_character = Character(
+            name, race, char_class, level, sub_class, abilities, proficiencies, actions, god, proficiency_bonus,
+            saving_throws, notes, weapons, race_abilities, class_abilities)
         characters.append(new_character)
         save_characters(characters)
         print(f"{name} has been added successfully.")
@@ -439,8 +515,6 @@ def handle_command(user_input):
         handle_add_spell_command()
     elif user_input == "add weapon":
         handle_add_weapon_command()
-    elif len(parts) > 1 and parts[-1].lower() == "info":
-        handle_weapon_info_command(parts)
     elif user_input == "add item to bag":
         handle_add_item_to_bag_command()
     elif user_input == "remove item from bag":
@@ -450,17 +524,26 @@ def handle_command(user_input):
     elif user_input == "add character":
         handle_add_character_command()
     elif len(parts) > 1 and parts[-1].lower() == "info":
-        handle_character_info_command(parts)
+        command_subject = " ".join(parts[:-1])
+        weapon = next((w for w in weapons if w.name.lower() == command_subject.lower()), None)
+        character = find_character_by_name(command_subject)
+        if weapon:
+            handle_weapon_info_command(parts)
+        elif character:
+            handle_character_info_command(parts)
+        else:
+            print(f"No weapon or character named {command_subject} found.")
     else:
         print("Unknown command. Please try again.")
 
     return True
 
 def main():
-    while True:
-        user_input = input("What would you like to do? (type help for a list of commands): ").lower()
-        if not handle_command(user_input):
-            break
+    print("Welcome to the D&D CLI. Type 'help' for a list of commands.")
+    running = True
+    while running:
+        user_input = input("> ")
+        running = handle_command(user_input)
 
 if __name__ == "__main__":
     main()
