@@ -539,7 +539,7 @@ def handle_command(user_input):
     return True
 
 def main():
-    print("Welcome to the D&D CLI. Type 'help' for a list of commands.")
+    print("Welcome! Type 'help' for a list of commands.")
     running = True
     while running:
         user_input = input("> ")
