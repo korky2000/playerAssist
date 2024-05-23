@@ -1,18 +1,16 @@
-#!/usr/bin/env python3
-
 import json
 import os
 
 class Character:
-    def __init__(self, name, race, char_class, level, sub_class, ability_modifiers, proficiencies, actions, god, proficiency_bonus, saving_throws, notes, weapons, race_abilities, class_abilities):
+    def __init__(self, name, race, sub_race, char_class, level, sub_class, ability_modifiers, proficiencies, god, proficiency_bonus, saving_throws, notes, weapons, race_abilities, class_abilities, spells):
         self.name = name
         self.race = race
+        self.sub_race = sub_race
         self.char_class = char_class
         self.level = level
         self.sub_class = sub_class
         self.ability_modifiers = ability_modifiers
         self.proficiencies = [proficiency.lower() for proficiency in proficiencies]
-        self.actions = actions
         self.god = god
         self.proficiency_bonus = proficiency_bonus
         self.saving_throws = [saving_throw.lower() for saving_throw in saving_throws]
@@ -20,6 +18,7 @@ class Character:
         self.weapons = weapons
         self.race_abilities = race_abilities
         self.class_abilities = class_abilities
+        self.spells = spells
 
     def get_stat(self, stat):
         skill_to_ability = {
@@ -68,19 +67,20 @@ class Character:
         return {
             "name": self.name,
             "race": self.race,
+            "sub_race": self.sub_race,
             "char_class": self.char_class,
             "level": self.level,
             "sub_class": self.sub_class,
             "ability_modifiers": self.ability_modifiers,
             "proficiencies": self.proficiencies,
-            "actions": self.actions,
             "god": self.god,
             "proficiency_bonus": self.proficiency_bonus,
             "saving_throws": self.saving_throws,
             "notes": self.notes,
             "weapons": self.weapons,
             "race_abilities": self.race_abilities,
-            "class_abilities": self.class_abilities
+            "class_abilities": self.class_abilities,
+            "spells": self.spells
         }
 
     @classmethod
@@ -88,19 +88,20 @@ class Character:
         return cls(
             data["name"],
             data["race"],
+            data.get("sub_race", ""),
             data["char_class"],
             data["level"],
             data["sub_class"],
             data["ability_modifiers"],
             data["proficiencies"],
-            data["actions"],
-            data["god"],
+            data.get("god", ""),
             data["proficiency_bonus"],
             data.get("saving_throws", []),
             data.get("notes", ""),
             data.get("weapons", []),
             data.get("race_abilities", {}),
-            data.get("class_abilities", {})
+            data.get("class_abilities", {}),
+            data.get("spells", [])
         )
 
     def display_info(self):
@@ -119,6 +120,7 @@ Character Information
 ========================================
 Name:                {self.name}
 Race:                {self.race}
+Sub-Race:            {self.sub_race}
 Class:               {self.char_class}
 Level:               {self.level}
 Subclass:            {self.sub_class}
@@ -136,13 +138,6 @@ Ability Modifiers
 ----------------------------------------
 Proficiencies:       {', '.join(self.proficiencies)}
 Saving Throws:       {', '.join(self.saving_throws)}
-
-----------------------------------------
-Actions
-----------------------------------------
-  Bonus Actions:     {self.actions['bonus_actions']}
-  Extra Attacks:     {self.actions['extra_attacks']}
-  Actions:           {self.actions['actions']}
 
 ----------------------------------------
 Weapons
@@ -172,12 +167,16 @@ Notes
 
 
 class Spell:
-    def __init__(self, spell_class, spell_save_dc, level, spell_name, description):
+    def __init__(self, spell_class, spell_save_dc, level, spell_name, description, casting_time, range, components, duration):
         self.spell_class = spell_class
         self.spell_save_dc = spell_save_dc
         self.level = level
         self.spell_name = spell_name
         self.description = self.clean_input(description)
+        self.casting_time = casting_time
+        self.range = range
+        self.components = components
+        self.duration = duration
 
     def clean_input(self, text):
         return ' '.join(text.split())
@@ -188,7 +187,11 @@ class Spell:
             "spell_save_dc": self.spell_save_dc,
             "level": self.level,
             "spell_name": self.spell_name,
-            "description": self.description
+            "description": self.description,
+            "casting_time": self.casting_time,
+            "range": self.range,
+            "components": self.components,
+            "duration": self.duration
         }
 
     @classmethod
@@ -198,7 +201,11 @@ class Spell:
             data["spell_save_dc"],
             data["level"],
             data["spell_name"],
-            data["description"]
+            data["description"],
+            data["casting_time"],
+            data["range"],
+            data["components"],
+            data["duration"]
         )
 
     def display_info(self):
@@ -209,6 +216,10 @@ Spell Save DC: {self.spell_save_dc}
 Level: {self.level}
 Spell Name: {self.spell_name}
 Description: {self.description}
+Casting Time: {self.casting_time}
+Range: {self.range}
+Components: {self.components}
+Duration: {self.duration}
 ------------------------
         """
         return info.strip()
@@ -352,8 +363,12 @@ def handle_add_spell_command():
         level = int(input("Enter the spell's level: "))
         spell_name = input("Enter the spell's name: ")
         description = input("Enter the spell's description: ")
+        casting_time = input("Enter the casting time: ")
+        range = input("Enter the range: ")
+        components = input("Enter the components: ")
+        duration = input("Enter the duration: ")
 
-        new_spell = Spell(spell_class, spell_save_dc, level, spell_name, description)
+        new_spell = Spell(spell_class, spell_save_dc, level, spell_name, description, casting_time, range, components, duration)
         spells.append(new_spell)
         save_spells(spells)
         print(f"Spell {spell_name} has been added successfully.")
@@ -427,6 +442,7 @@ def handle_add_character_command():
     try:
         name = input("Enter character's name: ")
         race = input("Enter character's race: ")
+        sub_race = input("Enter character's sub-race (if any): ")
         char_class = input("Enter character's class: ")
         level = int(input("Enter character's level: "))
         sub_class = input("Enter character's subclass: ")
@@ -435,11 +451,6 @@ def handle_add_character_command():
             abilities[ability] = int(input(f"Enter {name}'s {ability} modifier: "))
         proficiencies = input(f"Enter {name}'s proficiencies (comma separated): ").lower().split(", ")
         saving_throws = input(f"Enter {name}'s saving throw proficiencies (comma separated): ").lower().split(", ")
-        actions = {
-            "bonus_actions": input(f"Can {name} perform bonus actions? (True/False): ").lower() == "true",
-            "extra_attacks": int(input(f"Enter the number of extra attacks {name} has: ")),
-            "actions": int(input(f"Enter the number of actions {name} can perform: "))
-        }
         god = input(f"Enter the god {name} worships: ")
         proficiency_bonus = int(input(f"Enter the proficiency bonus for {name}: "))
         notes = input(f"Enter any additional notes for {name}: ")
@@ -465,22 +476,119 @@ def handle_add_character_command():
             ability_description = input("Enter the ability description: ")
             class_abilities[ability_name] = {"time": ability_time, "description": ability_description}
 
+        spells = []
+        while True:
+            add_spell = input("Add a spell? (y/n): ").lower()
+            if add_spell == 'n':
+                break
+            level = int(input("Enter spell level: "))
+            name = input("Enter spell name: ")
+            casting_time = input("Enter casting time: ")
+            description = input("Enter spell description: ")
+            range = input("Enter spell range: ")
+            components = input("Enter spell components: ")
+            duration = input("Enter spell duration: ")
+            spells.append({"level": level, "name": name, "casting_time": casting_time, "description": description, "range": range, "components": components, "duration": duration})
+
         new_character = Character(
-            name, race, char_class, level, sub_class, abilities, proficiencies, actions, god, proficiency_bonus,
-            saving_throws, notes, weapons, race_abilities, class_abilities)
+            name, race, sub_race, char_class, level, sub_class, abilities, proficiencies, god, proficiency_bonus,
+            saving_throws, notes, weapons, race_abilities, class_abilities, spells)
         characters.append(new_character)
         save_characters(characters)
         print(f"{name} has been added successfully.")
     except ValueError as e:
         print(f"Error: {e}. Please try again.")
 
-def handle_character_info_command(parts):
+def handle_player_turn_command(parts):
     character_name = " ".join(parts[:-1])
     character = find_character_by_name(character_name)
-    if character:
-        print(character.display_info())
-    else:
+    if not character:
         print(f"No character named {character_name} found.")
+        return
+
+    # Collect weapon attacks
+    weapon_attacks = []
+    for weapon_name in character.weapons:
+        weapon = next((w for w in weapons if w.name.lower() == weapon_name.lower()), None)
+        if weapon:
+            attack_string = f"\033[3m{weapon.name}\033[0m (Attack Bonus: {weapon.attack_bonus}, Damage: {weapon.damage} {weapon.damage_type})"
+            weapon_attacks.append(attack_string)
+
+    # Collect racial abilities
+    racial_abilities = []
+    for name, details in character.race_abilities.items():
+        if details.get('time', '').lower() == 'action':
+            racial_abilities.append(f"\033[3m{name}\033[0m: {details['description']}")
+
+    # Collect class abilities
+    class_abilities = []
+    for name, details in character.class_abilities.items():
+        if details.get('time', '').lower() == 'action':
+            class_abilities.append(f"\033[3m{name}\033[0m: {details['description']}")
+
+    # Collect spells for actions and bonus actions
+    spells_action = []
+    spells_bonus_action = []
+    for spell in character.spells:
+        if 'casting_time' in spell and spell['casting_time']:
+            casting_time = spell['casting_time'].lower()
+            if "action" in casting_time and "bonus" not in casting_time:
+                spells_action.append(f"\033[3m{spell['name']}\033[0m (Level {spell['level']})")
+            elif "bonus action" in casting_time:
+                spells_bonus_action.append(f"\033[3m{spell['name']}\033[0m (Level {spell['level']})")
+
+    # Debug statements
+    print(f"DEBUG: Character Spells - {character.spells}")
+    print(f"DEBUG: Spells for Actions - {spells_action}")
+    print(f"DEBUG: Spells for Bonus Actions - {spells_bonus_action}")
+
+    # Collect bonus actions
+    bonus_actions = []
+    for name, details in character.race_abilities.items():
+        if details.get('time', '').lower() == 'bonus action':
+            bonus_actions.append(f"\033[3m{name}\033[0m: {details['description']}")
+    for name, details in character.class_abilities.items():
+        if details.get('time', '').lower() == 'bonus action':
+            bonus_actions.append(f"\033[3m{name}\033[0m: {details['description']}")
+
+    # Formatting the output
+    actions_info = "\n\n".join(filter(None, [
+        "\033[4mAttack\033[0m:\n" + "\n\n".join(weapon_attacks) if weapon_attacks else "",
+        "\033[4mSpells\033[0m:\n" + "\n\n".join(spells_action) if spells_action else "",
+        "\033[4mClass Abilities\033[0m:\n" + "\n\n".join(class_abilities) if class_abilities else "",
+        "\033[4mRacial Abilities\033[0m:\n" + "\n\n".join(racial_abilities) if racial_abilities else ""
+    ]))
+
+    bonus_actions_info = "\n\n".join(filter(None, [
+        "\033[1mBonus Actions\033[0m:\n" + "\n\n".join(bonus_actions) if bonus_actions else "",
+        "\033[1mBonus Action Spells\033[0m:\n" + "\n\n".join(spells_bonus_action) if spells_bonus_action else ""
+    ]))
+
+    turn_info = f"""
+========================================
+{character_name}'s Turn
+What can {character_name} do on their turn?
+
+- Use their movement speed to move
+- Do an action
+- Do a bonus action
+
+========================================
+\033[1mActions\033[0m:
+
+ \033[3mDash\033[0m: Gain extra movement for your current turn
+
+ \033[3mHelp\033[0m: You can lend your aid to another creature in the completion of a task. They gain advantage on their next roll.
+
+ \033[3mHide\033[0m: Make a Dexterity (Stealth) check in an attempt to hide. 
+
+{actions_info}
+
+\033[1mBonus Actions\033[0m:
+{bonus_actions_info}
+========================================
+    """
+    print(turn_info.strip())
 
 def display_help():
     help_text = """
@@ -494,6 +602,7 @@ def display_help():
     - remove item from bag: Remove an item from the Bag of Holding.
     - list bag items: List all items in the Bag of Holding.
     - add character: Add a new character to the list.
+    - [character name] turn: Display the character's actions and bonus actions for the turn.
     - [character name] info: Display information about a specific character.
     - help: Display this help message.
     - quit: Exit the program.
@@ -523,6 +632,8 @@ def handle_command(user_input):
         handle_list_bag_items_command()
     elif user_input == "add character":
         handle_add_character_command()
+    elif len(parts) > 1 and parts[-1].lower() == "turn":
+        handle_player_turn_command(parts)
     elif len(parts) > 1 and parts[-1].lower() == "info":
         command_subject = " ".join(parts[:-1])
         weapon = next((w for w in weapons if w.name.lower() == command_subject.lower()), None)
@@ -539,7 +650,7 @@ def handle_command(user_input):
     return True
 
 def main():
-    print("Welcome! Type 'help' for a list of commands.")
+    print("Welcome to the D&D CLI. Type 'help' for a list of commands.")
     running = True
     while running:
         user_input = input("> ")
