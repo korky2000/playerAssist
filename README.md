@@ -17,4 +17,17 @@ A tool for tequilatown players
     - quit: Exit the program.
     
 If you are not a part of the Tequilatown campaign, do not download the JSON files. The script will generate them for you. 
+
+FOR MY TECHNOLOGICALLY CHALLENGED PLAYERS (that is all of you except for mason) Here is how you run this program.
+
+- Make a folder on your desktop named player
+- download the files from this
+- put the files from this in the folder named player
+- download python (https://www.python.org/downloads/)
+- Install Python
+- open your terminal (mac) or command line
+- Type cd Desktop/player (mac) or cd Desktop\player (windows) this will allow you to access the file path
+- type python3 playerGUI.py if you want a graphic interface or type python3 playAssist.py if you want the command line experience
+- Thats it! Very easy. 
+
     
