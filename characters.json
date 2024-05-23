@@ -1,0 +1,825 @@
+[
+    {
+        "name": "Bob",
+        "race": "Goliath",
+        "sub_race": "",
+        "char_class": "Paladin/Barbarian",
+        "level": 7,
+        "sub_class": "Oath of the Ancients",
+        "ability_modifiers": {
+            "strength": 3,
+            "dexterity": 1,
+            "constitution": 3,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 0
+        },
+        "proficiencies": [
+            "animal handling",
+            "athletics",
+            "intimidation",
+            "perception",
+            "persuasion"
+        ],
+        "god": "Guy",
+        "proficiency_bonus": 3,
+        "saving_throws": [
+            "wisdom",
+            "charisma"
+        ],
+        "notes": "None",
+        "weapons": [
+            "pagos",
+            "greatsword",
+            "fist"
+        ],
+        "race_abilities": {
+            "Stone's Endurance": {
+                "time": "Action",
+                "description": "Action. You can activate this feature as an action to gain increased carrying capacity and jumping distance for 1 minute."
+            }
+        },
+        "class_abilities": {
+            "Second Wind": {
+                "time": "bonus action",
+                "description": "As a Bonus Action, if you have taken damage since your last Turn, gain Temporary HP equal to 1d10 + your Fighter level. You cannot use this ability again until after you take a Short or Long Rest."
+            },
+            "Action Surge": {
+                "time": "action",
+                "description": "You can take two bonus actions instead of one on your turn. This only lasts for the remainder of your turn."
+            },
+            "Aura of Protection": {
+                "time": "action",
+                "description": "Activate their Aura of Protection, granting a bonus to AC and all saving throws for themselves and allies within 10 feet for the duration of concentration (concentration requires using their concentration on this effect throughout the entire duration or until it ends).ives allies within 10 feet of the Paladin a bonus to their saving throw equal to the Paladin's Charisma modifier, with a minimum bonus of +1. It does not extend through physical barriers. It only dissipates when the paladin dies."
+            },
+            "Aura of Devotion": {
+                "time": "Action",
+                "description": "Expend their Channel Divinity (once per short or long rest depending on their Oath) to create an aura that inspires courage in allies within 30 feet, granting them temporary hit points equal to their Charisma modifier + half their paladin level (rounded down)."
+            },
+            "Lay on Hands": {
+                "time": "action",
+                "description": "As an action, they can touch a creature and expend Hit Points from their pool to heal them. This is a useful way to keep themselves and allies alive."
+            },
+            "Rage": {
+                "time": "bonus action",
+                "description": "Enter a rage as a bonus action, gaining benefits like resistance to bludgeoning, piercing, and slashing damage, advantage on Strength checks and Strength saving throws, and a damage bonus to melee weapon attacks. Rage ends after a minute or if you haven't attacked a hostile creature since your last turn or you fall unconscious. You can rage twice per long rest at level 1."
+            }
+        },
+        "spells": []
+    },
+    {
+        "name": "Lixiss",
+        "race": "Half-Elf",
+        "sub_race": "",
+        "char_class": "Cleric",
+        "level": 3,
+        "sub_class": "Domain of Knowledge",
+        "ability_modifiers": {
+            "strength": 3,
+            "dexterity": 0,
+            "constitution": 1,
+            "intelligence": 1,
+            "wisdom": 3,
+            "charisma": 2
+        },
+        "proficiencies": [
+            "arcana",
+            "history",
+            "medicine",
+            "nature",
+            "perception",
+            "persuasion",
+            "religion",
+            "survival"
+        ],
+        "god": "The Chronolog",
+        "proficiency_bonus": 2,
+        "saving_throws": [
+            "wisdom",
+            "charisma"
+        ],
+        "notes": "None",
+        "weapons": [
+            "mace",
+            "crossbow",
+            "small knife"
+        ],
+        "race_abilities": {},
+        "class_abilities": {
+            "Arcana Revelation": {
+                "time": "action",
+                "description": "As an action, you touch a creature that has cast a spell within 1 minute. You learn the name of that spell if it is of 5th level or lower and of a type that you can cast. This allows you to potentially identify enemy spellcasters and their capabilities."
+            },
+            "Blessings of Knowledge": {
+                "time": "action",
+                "description": "As an action, you can choose up to three creatures within 10 feet of you. Each creature gains proficiency in the Intelligence (Investigation) or Intelligence (History) skill for 1 minute."
+            },
+            "Knowledge of the Arcana": {
+                "time": "action",
+                "description": "As an action, you can tap into your knowledge of the arcane to reveal hidden magical properties of a creature, object, or magical effect within 30 feet of you."
+            }
+        },
+        "spells": [
+            {
+                "level": 0,
+                "name": "Sacred Flame",
+                "casting_time": "1 action",
+                "description": "Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 radiant damage. The target gains no benefit from cover for this saving throw.",
+                "range": "60 feet",
+                "components": "V, S",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 0,
+                "name": "Mending",
+                "casting_time": "1 minute",
+                "description": "This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.",
+                "range": "Touch",
+                "components": "V, S, M (two lodestones)",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 0,
+                "name": "Thaumaturgy",
+                "casting_time": "1 action",
+                "description": "You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range: \u2022 Your voice booms up to three times as loud as normal for 1 minute. \u2022 You cause flames to flicker, brighten, dim, or change color for 1 minute. \u2022 You cause harmless tremors in the ground for 1 minute. \u2022 You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers. \u2022 You instantaneously cause an unlocked door or window to fly open or slam shut. \u2022 You alter the appearance of your eyes for 1 minute.",
+                "range": "30 feet",
+                "components": "V",
+                "duration": "Up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Guiding Bolt",
+                "casting_time": "1 action",
+                "description": "A flash of light streaks toward a creature of your choice within range. Make a ranged spell attack against the target. On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has advantage, thanks to the mystical dim light glittering on the target until then.",
+                "range": "120 feet",
+                "components": "V, S",
+                "duration": "1 round"
+            },
+            {
+                "level": 1,
+                "name": "Cure Wounds",
+                "casting_time": "1 action",
+                "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                "range": "Touch",
+                "components": "V, S",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 1,
+                "name": "Healing Word",
+                "casting_time": "1 bonus action",
+                "description": "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                "range": "60 feet",
+                "components": "V",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 2,
+                "name": "Aid",
+                "casting_time": "1 action",
+                "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.",
+                "range": "30 feet",
+                "components": "V, S, M (a tiny strip of white cloth)",
+                "duration": "8 hours"
+            },
+            {
+                "level": 2,
+                "name": "Hold Person",
+                "casting_time": "1 action",
+                "description": "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
+                "range": "60 feet",
+                "components": "V, S, M (a small, straight piece of iron)",
+                "duration": "Concentration, up to 1 minute"
+            },
+            {
+                "level": 2,
+                "name": "Spiritual Weapon",
+                "casting_time": "1 bonus action",
+                "description": "You create a floating, spectral weapon within range that lasts for the duration or until you cast this spell again. When you cast the spell, you can make a melee spell attack against a creature within 5 feet of the weapon. On a hit, the target takes force damage equal to 1d8 + your spellcasting ability modifier. As a bonus action on your turn, you can move the weapon up to 20 feet and repeat the attack against a creature within 5 feet of it.",
+                "range": "60 feet",
+                "components": "V, S",
+                "duration": "1 minute"
+            }
+        ]
+    },
+    {
+        "name": "Spike",
+        "race": "Dragonborn",
+        "sub_race": "Lightning Dragonborn",
+        "char_class": "Paladin",
+        "level": 5,
+        "sub_class": "Oath of the Ancients",
+        "ability_modifiers": {
+            "strength": 18,
+            "dexterity": 12,
+            "constitution": 14,
+            "intelligence": 10,
+            "wisdom": 13,
+            "charisma": 16
+        },
+        "proficiencies": [
+            "athletics",
+            "intimidation",
+            "persuasion",
+            "religion"
+        ],
+        "god": "Torm",
+        "proficiency_bonus": 3,
+        "saving_throws": [
+            "wisdom",
+            "charisma"
+        ],
+        "notes": "Devoted to upholding justice and virtue.",
+        "weapons": [
+            "longsword",
+            "shield"
+        ],
+        "race_abilities": {
+            "Lightning Breath": {
+                "time": "action",
+                "description": "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level."
+            }
+        },
+        "class_abilities": {
+            "Lay on Hands": {
+                "time": "action",
+                "description": "You have a pool of healing power that replenishes after a long rest. It is equal to (Paladin level x 5). You can expend 5 hit points to cure a disease or neutralize one poison. Has no effect on undead or constructs."
+            },
+            "Divine Smite": {
+                "time": "when hitting with a melee weapon attack",
+                "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon\u2019s damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend."
+            },
+            "Nature's Wrath": {
+                "time": "action",
+                "description": "You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet of you that you can see. The creature must succeed on a Strength or Dexterity saving throw (its choice) or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish."
+            },
+            "Turn the Faithless": {
+                "time": "action",
+                "description": "You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage."
+            }
+        },
+        "spells": [
+            {
+                "level": 1,
+                "name": "Thunderous Smite",
+                "casting_time": "1 bonus action",
+                "description": "The first time you hit with a melee weapon attack during this spell\u2019s duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.",
+                "range": "Self",
+                "components": "V",
+                "duration": "Concentration, up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Ensnaring Strike",
+                "casting_time": "1 bonus action",
+                "description": "The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. While restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.",
+                "range": "Self",
+                "components": "V",
+                "duration": "Concentration, up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Divine Favor",
+                "casting_time": "1 bonus action",
+                "description": "Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1d4 radiant damage on a hit.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "Concentration, up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Speak with Animals",
+                "casting_time": "1 action",
+                "description": "You gain the ability to comprehend and verbally communicate with beasts for the duration. The knowledge and awareness of many beasts is limited by their intelligence, but at minimum, beasts can give you information about nearby locations and monsters, including whatever they can perceive or have perceived within the past day. You might be able to persuade a beast to perform a small favor for you, at the DM's discretion.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "10 minutes"
+            },
+            {
+                "level": 1,
+                "name": "Cure Wounds",
+                "casting_time": "1 action",
+                "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                "range": "Touch",
+                "components": "V, S",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 1,
+                "name": "Divine Smite",
+                "casting_time": "1 action",
+                "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon\u2019s damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
+                "range": "Self",
+                "components": "V",
+                "duration": "Instantaneous"
+            }
+        ]
+    },
+    {
+        "name": "Ash",
+        "race": "Elf",
+        "sub_race": "High-Elf",
+        "char_class": "Monk",
+        "level": 3,
+        "sub_class": "Way of the Drunken Master",
+        "ability_modifiers": {
+            "strength": 0,
+            "dexterity": 3,
+            "constitution": 1,
+            "intelligence": -1,
+            "wisdom": 2,
+            "charisma": 1
+        },
+        "proficiencies": [
+            "insight",
+            "perception",
+            "performance",
+            "religion"
+        ],
+        "god": "",
+        "proficiency_bonus": 2,
+        "saving_throws": [
+            "strength",
+            "dexterity"
+        ],
+        "notes": "none",
+        "weapons": [
+            "fist",
+            "shortsword"
+        ],
+        "race_abilities": {},
+        "class_abilities": {
+            "Flurry of Blows": {
+                "time": "bonus action",
+                "description": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action."
+            },
+            "Patient Defense": {
+                "time": "bonus action",
+                "description": "Spend 1 ki point to take the Dodge action as a bonus action on your turn."
+            },
+            "Step of the Wind": {
+                "time": "bonus action",
+                "description": "Spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+            },
+            "Deflect Missiles": {
+                "time": "reaction",
+                "description": "You can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level. If you reduce the damage to 0, you can catch the missile if it is small enough to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack."
+            }
+        },
+        "spells": []
+    },
+    {
+        "name": "Velza",
+        "race": "Tiefling",
+        "sub_race": "",
+        "char_class": "Fighter/Bard",
+        "level": 7,
+        "sub_class": "Eldrich Knight",
+        "ability_modifiers": {
+            "strength": 3,
+            "dexterity": 3,
+            "constitution": 3,
+            "intelligence": 3,
+            "wisdom": 0,
+            "charisma": 4
+        },
+        "proficiencies": [
+            "athletics",
+            "perception",
+            "performance",
+            "persuasion",
+            "sleight of hand"
+        ],
+        "god": "Nancy Reagan",
+        "proficiency_bonus": 3,
+        "saving_throws": [
+            "strength",
+            "constitution"
+        ],
+        "notes": "mommy issues",
+        "weapons": [
+            "glaive",
+            "warhammer",
+            "firebolt"
+        ],
+        "race_abilities": {
+            "Infernal Legacy": {
+                "time": "action",
+                "description": "You know the thaumaturgy cantrip"
+            }
+        },
+        "class_abilities": {
+            "Second Wind": {
+                "time": "bonus action",
+                "description": "On your turn you can use a bonus action to regain hit points equal to 1d10 + fighter level. Once per rest."
+            },
+            "Action Surge": {
+                "time": "bonus action",
+                "description": "Take one additional action and bonus action. Use once per rest."
+            },
+            "Bardic Inspiration": {
+                "time": "bonus action",
+                "description": "Give someone a d6 of inspiration."
+            }
+        },
+        "spells": [
+            {
+                "level": 0,
+                "name": "Vicious Mockery",
+                "casting_time": "Instant",
+                "description": "Succeed a wisdom saving throw or take 1d4 psychic damage.",
+                "range": "60 feet",
+                "components": "V",
+                "duration": "Instant"
+            },
+            {
+                "level": 0,
+                "name": "Fire Bolt",
+                "casting_time": "Instant",
+                "description": "You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn’t being worn or carried.",
+                "range": "120 feet",
+                "components": "V, S",
+                "duration": "Instant"
+            },
+            {
+                "level": 0,
+                "name": "Minor Illusion",
+                "casting_time": "1 action",
+                "description": "You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.",
+                "range": "30 feet",
+                "components": "S, M (a bit of fleece)",
+                "duration": "1 minute"
+            },
+            {
+                "level": 0,
+                "name": "Message",
+                "casting_time": "1 action",
+                "description": "You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.",
+                "range": "120 feet",
+                "components": "V, S, M (a short piece of copper wire)",
+                "duration": "1 round"
+            },
+            {
+                "level": 0,
+                "name": "Thaumaturgy",
+                "casting_time": "1 action",
+                "description": "You manifest a minor wonder, a sign of supernatural power, within range.",
+                "range": "30 feet",
+                "components": "V",
+                "duration": "Up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Detect Magic",
+                "casting_time": "1 action",
+                "description": "For the duration, you sense the presence of magic within 30 feet of you.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "Concentration, up to 10 minutes"
+            },
+            {
+                "level": 1,
+                "name": "Charm Person",
+                "casting_time": "1 action",
+                "description": "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it.",
+                "range": "30 feet",
+                "components": "V, S",
+                "duration": "1 hour"
+            },
+            {
+                "level": 1,
+                "name": "Feather Fall",
+                "casting_time": "1 reaction",
+                "description": "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends.",
+                "range": "60 feet",
+                "components": "V, M (a small feather or piece of down)",
+                "duration": "1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Longstrider",
+                "casting_time": "1 action",
+                "description": "You touch a creature. The target's speed increases by 10 feet until the spell ends.",
+                "range": "Touch",
+                "components": "V, S, M (a pinch of dirt)",
+                "duration": "1 hour"
+            },
+            {
+                "level": 1,
+                "name": "Disguise Self",
+                "casting_time": "1 action",
+                "description": "You make yourself—including your clothing, armor, weapons, and other belongings on your person—look different until the spell ends or until you use your action to dismiss it.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "1 hour"
+            },
+            {
+                "level": 1,
+                "name": "Faerie Fire",
+                "casting_time": "1 action",
+                "description": "Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw.",
+                "range": "60 feet",
+                "components": "V",
+                "duration": "Concentration, up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Sleep",
+                "casting_time": "1 action",
+                "description": "This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect.",
+                "range": "90 feet",
+                "components": "V, S, M (a pinch of fine sand, rose petals, or a cricket)",
+                "duration": "1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Cure Wounds",
+                "casting_time": "1 action",
+                "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                "range": "Touch",
+                "components": "V, S",
+                "duration": "Instant"
+            },
+            {
+                "level": 2,
+                "name": "Hellish Rebuke",
+                "casting_time": "1 reaction",
+                "description": "You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.",
+                "range": "60 feet",
+                "components": "V, S",
+                "duration": "Instant"
+            },
+            {
+                "level": 2,
+                "name": "Darkness",
+                "casting_time": "1 action",
+                "description": "Magical darkness spreads from a point you choose within range to fill a 15-foot radius sphere for the duration.",
+                "range": "60 feet",
+                "components": "V, M (bat fur and a drop of pitch or piece of coal)",
+                "duration": "Concentration, up to 10 minutes"
+            }
+        ]
+    },
+    {
+        "name": "Dingle",
+        "race": "Aasimar",
+        "sub_race": "Variant",
+        "char_class": "Rogue",
+        "level": 7,
+        "sub_class": "Assassin",
+        "ability_modifiers": {
+            "strength": 1,
+            "dexterity": 3,
+            "constitution": 2,
+            "intelligence": -1,
+            "wisdom": 2,
+            "charisma": 1
+        },
+        "proficiencies": [
+            "acrobatics",
+            "athletics",
+            "intimidation",
+            "investigation",
+            "perception",
+            "sleight of hand"
+        ],
+        "god": "",
+        "proficiency_bonus": 3,
+        "saving_throws": [
+            "dexterity",
+            "intelligence"
+        ],
+        "notes": "",
+        "weapons": [
+            "rapier"
+        ],
+        "race_abilities": {
+            "Healing Hands": {
+                "time": "Action",
+                "description": "Touch a creature to heal 7 hit points. 1 per long rest."
+            }
+        },
+        "class_abilities": {
+            "Cunning Action": {
+                "time": "bonus action",
+                "description": "Take a bonus action to dash, disengage, or hide."
+            },
+            "Fast Hands": {
+                "time": "bonus action",
+                "description": "Use a bonus action to disarm a trap, open a lock, or use an object."
+            },
+            "Uncanny Dodge": {
+                "time": "reaction",
+                "description": "When an attacker hits you, you can use your reaction to take half damage."
+            },
+            "Evasion": {
+                "time": "reaction",
+                "description": "When you make a Dexterity saving throw and pass, you take no damage."
+            }
+        },
+        "spells": [
+            {
+                "level": 0,
+                "name": "Light",
+                "casting_time": "Action",
+                "description": "Touch one object that is no larger than 10 feet in any dimension. The object sheds bright light for 40 feet. You can dismiss it as an action.",
+                "range": "Touch",
+                "components": "Verbal, Material (one firefly or phosphorescent moss)",
+                "duration": "1 hour"
+            },
+            {
+                "level": 2,
+                "name": "Lesser Restoration",
+                "casting_time": "Action",
+                "description": "You can touch a creature and cure a disease or condition afflicting it. The conditions it can cure are blinded, deafened, paralyzed, or poisoned.",
+                "range": "Touch",
+                "components": "Verbal, Somatic",
+                "duration": "Instant"
+            },
+            {
+                "level": 3,
+                "name": "Daylight",
+                "casting_time": "Action",
+                "description": "A 60-foot-radius sphere of light spreads out from a point you choose within range. The sphere is bright light and sheds dim light for an additional 60 feet. You can dismiss it as an action.",
+                "range": "60 feet",
+                "components": "Verbal, Somatic",
+                "duration": "1 hour"
+            }
+        ]
+    },{
+        "name": "Willow",
+        "race": "Elf",
+        "sub_race": "Wood Elf",
+        "char_class": "Druid",
+        "level": 3,
+        "sub_class": "Circle of Spores",
+        "ability_modifiers": {
+            "strength": 1,
+            "dexterity": 3,
+            "constitution": 0,
+            "intelligence": 1,
+            "wisdom": 2,
+            "charisma": -1
+        },
+        "proficiencies": [
+            "animal handling",
+            "insight",
+            "perception",
+            "stealth",
+            "survival"
+        ],
+        "god": "",
+        "proficiency_bonus": 2,
+        "saving_throws": [
+            "intelligence",
+            "wisdom"
+        ],
+        "notes": "When Willow rolls a 1-5 on a d20 she should roll on the d100 wild magic table",
+        "weapons": [
+            "dagger",
+            "shortbow"
+        ],
+        "race_abilities": {},
+        "class_abilities": {
+            "Wild Shape": {
+                "time": "action",
+                "description": "You can turn into an animal with a CR of 1/4 or less. You retain your alignment, personality, intelligence, wisdom, and charisma scores. You also keep the same proficiencies."
+            },
+            "Circle of Spores": {
+                "time": "reaction",
+                "description": "If a creature tries to attack you, you can unleash spores that do 1d4 necrotic damage."
+            }
+        },
+        "spells": [
+            {
+                "level": 0,
+                "name": "Chill Touch",
+                "casting_time": "Action",
+                "description": "Make a ranged spell attack, on a hit deal 1d8 necrotic damage. It also has disadvantage on attack rolls against you until the end of your next turn.",
+                "range": "120 feet",
+                "components": "V, S",
+                "duration": "1 round"
+            },
+            {
+                "level": 0,
+                "name": "Gust",
+                "casting_time": "Action",
+                "description": "You seize the air and compel it to create one of the following effects at a point you can see within range: one medium or smaller creature you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you; you create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds; you create a harmless sensory effect using air, such as causing leaves to rustle, wind to slam shutters closed, or your clothing to ripple in a breeze.",
+                "range": "30 feet",
+                "components": "V, S",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 0,
+                "name": "Produce Flame",
+                "casting_time": "Action",
+                "description": "A flickering flame appears in your hand. The flame remains there for the duration and harms neither you nor your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The spell ends if you dismiss it as an action or if you cast it again. You can also attack with the flame, although doing so ends the spell. When you cast this spell, or as an action on a later turn, you can hurl the flame at a creature within 30 feet of you. Make a ranged spell attack. On a hit, the target takes 1d8 fire damage.",
+                "range": "Self (30-foot radius)",
+                "components": "V, S",
+                "duration": "10 minutes"
+            },
+            {
+                "level": 1,
+                "name": "Entangle",
+                "casting_time": "Action",
+                "description": "Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point within range. For the duration, these plants turn the ground in the area into difficult terrain. A creature in the area when you cast the spell must succeed on a Strength saving throw or be restrained by the entangling plants until the spell ends.",
+                "range": "90 feet",
+                "components": "V, S",
+                "duration": "Concentration, up to 1 minute"
+            },
+            {
+                "level": 1,
+                "name": "Goodberry",
+                "casting_time": "1 action",
+                "description": "Up to ten berries appear in your hand and are infused with magic for the duration. A creature can use its action to eat one berry. Eating a berry restores 1 hit point, and the berry provides enough nourishment to sustain a creature for one day. The berries lose their potency if they have not been consumed within 24 hours of the casting of this spell.",
+                "range": "Touch",
+                "components": "V, S, M (a sprig of mistletoe)",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 1,
+                "name": "Ice Knife",
+                "casting_time": "1 action",
+                "description": "You create a shard of ice and fling it at one creature within range. Make a ranged spell attack. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage.",
+                "range": "60 feet",
+                "components": "S, M (a drop of water or piece of ice)",
+                "duration": "Instantaneous"
+            },
+            {
+                "level": 2,
+                "name": "Flame Blade",
+                "casting_time": "1 bonus action",
+                "description": "You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke the blade again as a bonus action. You can use your action to make a melee spell attack with the fiery blade. On a hit, the target takes 3d6 fire damage.",
+                "range": "Self",
+                "components": "V, S, M (leaf of sumac)",
+                "duration": "Concentration, up to 10 minutes"
+            },
+            {
+                "level": 2,
+                "name": "Spike Growth",
+                "casting_time": "1 action",
+                "description": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels.",
+                "range": "150 feet",
+                "components": "V, S, M (seven sharp thorns or seven small twigs, each sharpened to a point)",
+                "duration": "Concentration, up to 10 minutes"
+            },
+            {
+                "level": 2,
+                "name": "Blindness/Deafness",
+                "casting_time": "1 action",
+                "description": "You can blind or deafen a foe. Choose one creature that you can see within range to make a Constitution saving throw. If it fails, the target is either blinded or deafened (your choice) for the duration. At the end of each of its turns, the target can make a Constitution saving throw. On a success, the spell ends.",
+                "range": "30 feet",
+                "components": "V",
+                "duration": "1 minute"
+            },
+            {
+                "level": 2,
+                "name": "Lesser Restoration",
+                "casting_time": "Action",
+                "description": "You can touch a creature and cure a disease or condition afflicting it. The conditions it can cure are blinded, deafened, paralyzed, or poisoned.",
+                "range": "Touch",
+                "components": "Verbal, Somatic",
+                "duration": "Instant"
+            },
+            {
+                "level": 3,
+                "name": "Daylight",
+                "casting_time": "Action",
+                "description": "A 60-foot-radius sphere of light spreads out from a point you choose within range. The sphere is bright light and sheds dim light for an additional 60 feet. You can dismiss it as an action.",
+                "range": "60 feet",
+                "components": "Verbal, Somatic",
+                "duration": "1 hour"
+            },
+            {
+                "level": 2,
+                "name": "Gentle Response",
+                "casting_time": "Instant",
+                "description": "You invoke a gentle response to harm, reducing the damage of the next attack by 1d4.",
+                "range": "Self",
+                "components": "V",
+                "duration": "Instant"
+            },
+            {
+                "level": 2,
+                "name": "Halo of Spores",
+                "casting_time": "Reaction",
+                "description": "As a reaction, you can unleash spores that do 1d4 necrotic damage to a creature that attacks you.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "Instant"
+            },
+            {
+                "level": 2,
+                "name": "Symbiotic Entity",
+                "casting_time": "Action",
+                "description": "You awaken the spores that infuse you, gaining temporary hit points, dealing extra necrotic damage, and gaining other benefits for the duration.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "10 minutes"
+            }
+        ]
+    }
+    
+
+]

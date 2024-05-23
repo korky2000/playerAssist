@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Greatsword",
+        "attack_bonus": 6,
+        "damage": "2d6+4",
+        "damage_type": "slashing",
+        "notes": "+1 Greatsword (magic)"
+    },
+    {
+        "name": "pagos",
+        "attack_bonus": 6,
+        "damage": "1d12 1d4",
+        "damage_type": "Slashing",
+        "notes": "DC 12 or be paralyzed. 3 charges per LR"
+    },
+    {
+        "name": "Mace",
+        "attack_bonus": 5,
+        "damage": "1d6",
+        "damage_type": "bludgeoning",
+        "notes": "none"
+    },
+    {
+        "name": "Crossbow",
+        "attack_bonus": 5,
+        "damage": "1d6",
+        "damage_type": "Piercing",
+        "notes": "none"
+    },
+    {
+        "name": "Small Knife",
+        "attack_bonus": 5,
+        "damage": "1d4",
+        "damage_type": "Slashing",
+        "notes": "none"
+    },
+    {
+        "name": "Fist",
+        "attack_bonus": 5,
+        "damage": "1d4 3",
+        "damage_type": "bludgoning",
+        "notes": "monk"
+    },
+    {
+        "name": "shortsword",
+        "attack_bonus": 5,
+        "damage": "1d6",
+        "damage_type": "slashing",
+        "notes": ""
+    },
+    {
+        "name": "Glaive",
+        "attack_bonus": 8,
+        "damage": "1d10 3",
+        "damage_type": "Slashing",
+        "notes": "Add 1d4 to damage rolls"
+    },
+    {
+        "name": "Warhammer",
+        "attack_bonus": 6,
+        "damage": "1d8 4",
+        "damage_type": "bludgeoning",
+        "notes": ""
+    },
+    {
+        "name": "Fire Bolt",
+        "attack_bonus": 6,
+        "damage": "2d10",
+        "damage_type": "Fire",
+        "notes": ""
+    },
+    {
+        "name": "Rapier",
+        "attack_bonus": 8,
+        "damage": "1d8",
+        "damage_type": "slashing",
+        "notes": ""
+    }
+]

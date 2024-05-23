@@ -1,0 +1,46 @@
+[
+    {
+        "spell_class": "Paladin",
+        "spell_save_dc": null,
+        "level": 0,
+        "spell_name": "Light",
+        "casting_time": "1 action",
+        "description": "You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it as an action.",
+        "range": "Touch",
+        "components": "V, M (a firefly or phosphorescent moss)",
+        "duration": "1 hour"
+    },
+    {
+        "spell_class": "Paladin",
+        "spell_save_dc": null,
+        "level": 1,
+        "spell_name": "Thunderous Smite",
+        "casting_time": "1 bonus action",
+        "description": "The first time you hit with a melee weapon attack during this spell’s duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.",
+        "range": "Self",
+        "components": "V",
+        "duration": "Concentration, up to 1 minute"
+    },
+    {
+        "spell_class": "Paladin",
+        "spell_save_dc": null,
+        "level": 1,
+        "spell_name": "Divine Smite",
+        "casting_time": "1 action",
+        "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon’s damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
+        "range": "Self",
+        "components": "V",
+        "duration": "Instantaneous"
+    },
+    {
+        "spell_class": "Paladin",
+        "spell_save_dc": null,
+        "level": 1,
+        "spell_name": "Cure Wounds",
+        "casting_time": "1 action",
+        "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+        "range": "Touch",
+        "components": "V, S",
+        "duration": "Instantaneous"
+    }
+]
