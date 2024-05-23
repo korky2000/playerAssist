@@ -819,6 +819,129 @@
                 "duration": "10 minutes"
             }
         ]
+    },
+       {
+        "name": "Epe",
+        "race": "Human",
+        "sub_race": "Variant",
+        "char_class": "Wizard",
+        "level": 3,
+        "sub_class": "Evocation",
+        "ability_modifiers": {
+            "strength": 0,
+            "dexterity": 1,
+            "constitution": 3,
+            "intelligence": 3,
+            "wisdom": 0,
+            "charisma": 0
+        },
+        "proficiencies": [
+            "Arcana",
+            "Insight",
+            "Intimidation",
+            "Investigation",
+            "Religion"
+        ],
+        "god": "Gemini",
+        "proficiency_bonus": 2,
+        "saving_throws": [
+            "Intelligence",
+            "Wisdom"
+        ],
+        "notes": "From another dimension",
+        "weapons": [
+            "Unarmed Strike"
+        ],
+        "race_abilities": {},
+        "class_abilities": {
+            "Sculpt Spells": {
+                "time": "bonus action",
+                "description": "You can choose a number of creatures equal to 1 + spell level to automatically pass a saving throw."
+            }
+        },
+        "spells": [
+            {
+                "level": 0,
+                "name": "Chill Touch",
+                "casting_time": "1 action",
+                "description": "You create a ghostly skeletal hand in the space of a creature within range. Make a ranged spell attack against the creature to assail it with the chill of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit points until the start of your next turn. Until then, the hand clings to the target.",
+                "range": "120 feet",
+                "components": "V, S",
+                "duration": "1 round"
+            },
+            {
+                "level": 0,
+                "name": "Minor Illusion",
+                "casting_time": "1 action",
+                "description": "You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.",
+                "range": "30 feet",
+                "components": "S, M (a bit of fleece)",
+                "duration": "1 minute"
+            },
+            {
+                "level": 0,
+                "name": "Thunderclap",
+                "casting_time": "1 action",
+                "description": "You create a burst of thunderous sound that can be heard up to 100 feet away. Each creature other than you within 5 feet of you must make a Constitution saving throw. On a failed save, the creature takes 1d6 thunder damage.",
+                "range": "5 feet",
+                "components": "S",
+                "duration": "Instant"
+            },
+            {
+                "level": 1,
+                "name": "Detect Magic",
+                "casting_time": "1 action",
+                "description": "For the duration, you sense the presence of magic within 30 feet of you.",
+                "range": "Self",
+                "components": "V, S",
+                "duration": "Concentration, up to 10 minutes"
+            },
+            {
+                "level": 1,
+                "name": "Ice Knife",
+                "casting_time": "1 action",
+                "description": "You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage.",
+                "range": "60 feet",
+                "components": "S, M (a drop of water or piece of ice)",
+                "duration": "Instant"
+            },
+            {
+                "level": 1,
+                "name": "Magic Missile",
+                "casting_time": "1 action",
+                "description": "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4+1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.",
+                "range": "120 feet",
+                "components": "V, S",
+                "duration": "Instant"
+            },
+            {
+                "level": 1,
+                "name": "Mage Armor",
+                "casting_time": "1 action",
+                "description": "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier.",
+                "range": "Touch",
+                "components": "V, S, M (a piece of cured leather)",
+                "duration": "8 hours"
+            },
+            {
+                "level": 2,
+                "name": "Levitate",
+                "casting_time": "1 action",
+                "description": "One creature or object of your choice that you can see within range rises vertically, up to 20 feet, and remains suspended there for the duration. The spell can levitate a target that weighs up to 500 pounds. An unwilling creature that succeeds on a Constitution saving throw is unaffected.",
+                "range": "60 feet",
+                "components": "V, S, M (either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end)",
+                "duration": "Concentration, up to 10 minutes"
+            },
+            {
+                "level": 2,
+                "name": "Maximilian's Earthen Grasp",
+                "casting_time": "1 action",
+                "description": "You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes 2d6 bludgeoning damage and is restrained for the spell's duration.",
+                "range": "30 feet",
+                "components": "V, S, M (a miniature hand sculpted from clay)",
+                "duration": "Concentration, up to 1 minute"
+            }
+        ]
     }
     
 
